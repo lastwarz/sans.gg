@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sans.gg</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        body {
+            background-color: #9ADDEF;
+            overflow-x:hidden;
+        }
+        #header {
+
+        }
+        .logo {
+            width: 300px;
+            position: relative;
+            top: 10px;
+            right: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        .logo img {
+            width: 400px;
+        }
+        .search {
+            width: 600px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        .search img {
+            width: 600px;
+            height: 200px;
+        }
+        .search label input {
+            width: 480px;
+            height: 45px;
+            border: none;
+            border-radius: 100pt;
+            position: relative;
+            bottom: 130px;
+            left: 60px;
+            font-size: 2.5rem;
+        }
+        .search button {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            left: 10px;
+            bottom: 130px;
+        }
+        .info {
+            display: flex;
+            background-color: #d9d9d9;
+            width: 1200px;
+            height: 250px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            border-radius: 40pt;
+        }
+        .headProFile {
+            display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        .profileImg {
+            margin-left: 30px;
+        }
+        .userInfo {
+            display: flex;
+            flex-direction: column;
+            margin-left: 30px;
+        }
+        .userLevel {
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            position: relative;
+            bottom: 20px;
+            
+        }
+        .userLevel h3 {
+            margin-left: 5px;
+        }
+        .tier {
+            display: flex;
+            align-items: center;
+        }
+        .tierName-and-percent {
+            display: flex;
+            flex-direction: column;
+        }
+        .tierName-and-percent .percent {
+            margin-top: 10px;
+        }
+        .mostplay {
+            display: flex;
+            margin-left: 50px;
+            position: relative;
+            bottom: 0px;
+        }
+        .mostplay1, .mostplay2, .mostplay3 {
+            display: flex;
+            align-items: center;
+
+        }
+        .mostplay1 img, .mostplay2 img, .mostplay3 img {
+            border-radius: 100pt;
+        }
+        .mostplay1 h3, .mostplay2 h3, .mostplay3 h3 {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .positions20 {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .positions20 img {
+            width: 30px;
+        }
+        #main {
+
+        }
+        .games {
+
+        }
+        .game {
+            width: 1200px;
+            height: 250px;
+            margin-top: 50px;
+            background-color: black;
+            margin-left: auto;
+            margin-right: auto;
+            border: 7px solid white;
+            display: flex;
+            justify-content: space-around;
+            color: white;
+        }
+        .game-type-result {
+            display: flex;
+            flex-direction: column;
+            color: blue;
+            -webkit-text-stroke: 1.5px white;
+            font-weight:700;
+            font-size: 25pt;
+            margin-top: 30px;
+            margin-left: -30px;
+            justify-content: space-between;
+        }
+        .game-type-result .result {
+            margin-bottom: 30px;
+            font-size: 20pt;
+        }
+        .gameInfoAndItems {
+            display: flex;
+            flex-direction: column;
+        }
+        .gameInfo {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            font-size: 15pt;
+        }
+        .gameInfo .champion .iconAndLevel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .gameInfo .champion .icon {
+            display: flex;
+            flex-direction: column;
+        }
+        .gameInfo .champion .icon img {
+            width: 70px;
+        }
+        .gameInfo .champion img {
+            border-radius: 100pt;
+        }
+        .gameInfo .champion {
+            display: flex;
+        }
+        .gameInfo .champion .iconAndLevel .champion-level span img {
+            width: 30px;
+        }
+        .gameInfo .champion .rune {
+            margin-left: 10px;
+        }
+        .gameInfo .kda {
+            margin-left: -930px;
+        }
+        .gameInfo .kda .k-d-a .d {
+            color: red;
+        }
+        .gameInfo .kda .cs {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .items {
+            display: flex;
+            margin-top: 30px;
+        }
+        .items span {
+            margin-right: 10px;
+        }
+        .items span img {
+            border-radius: 10pt;
+        }
+        .items .item7 {
+            border-radius: 100pt;
+        }
+        .participants {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .participants img {
+            width: 20px;
+            margin-right: 5px;
+            border-radius: 10pt;
+        }
+        .Ateam, .Bteam  {
+            display: flex;
+            flex-direction: column;
+            margin: 30px;
+            justify-content: center;
+        }
+        #footer {
+            width: 100%;
+        }
+        .bones {
+            position: relative;
+            right: 35px;
+            display: flex;
+            top: 300px;
+            
+        }
+        .bones img {
+            width: 150px;
+            margin-right: -70px;
+        }
+        .sansButton img {
+            max-width: 100%;
+            width: 120px;
+            height: 120px;
+        }
+        .sansButton {
+            width: 400px;
+            margin: 0px auto;
+            position: relative
+        }
+        .jb-c {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0;
+            transition: opacity 0.5s linear;
+        }
+        .jb-c img {
+            width: 400px;
+        }
+        .sansButton:hover .jb-c {
+            opacity: 1;
+            box-shadow: 3px 3px 10px blue;
+        }
+        .sansButton {
+            position: relative;
+            left: 360px;
+            bottom: 190px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div class="logo">
+                <img src="logo.png" alt="">
+            </div>
+            <div class="search">
+                <img src="https://i.imgflip.com/4t8yv2.png" alt="">
+                <label for=""><input type="text" id="searchBar" style="text-align: center;" placeholder="username" value="맨탈게임"></label>
+                <div class="sansButton">
+                    <img src="https://art.pixilart.com/sr22681d47d80e2.png" alt="" class="jb-b">
+                    <img src="https://art.pixilart.com/sr232700d3714f4.png" class="jb-c">
+                </div>
+            </div>
+            <div class="info">
+                <div class="headProFile">
+                    <div class="profileImg">
+                        <img width="100px" src="https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon5766.jpg?image=q_auto,f_webp,w_auto&v=1684436046850" alt="profileImg">
+                    </div>
+                    <div class="userInfo">
+                        <div class="userLevel">
+                            <img width="30px" src="userLevel.png" alt="">
+                            <h3>9999</h3>
+                        </div>
+                        <div class="userName">
+                            <h3>맨탈게임</h3>
+                        </div>
+                    </div>                   
+                    <div class="tier">
+                        <img width="200px" src="https://opgg-static.akamaized.net/images/medals_new/challenger.png?image=q_auto,f_webp,w_144&v=1684919904860" alt="">
+                        <div class="tierName-and-percent">
+                            <div class="tierName">
+                                <h3>challenger</h3>
+                            </div>
+                            <div class="percent">
+                                <h3><span class="win">80</span>승<span class="lose">20</span>패 (<span class="win-lose-percent">80</span>%)</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mostplay-and-positions20">
+                        <div class="mostplay">
+                            <div class="mostplay1">
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Garen.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1684919904860" alt="">
+                                <h3><span class="most1">15</span>판</h3>
+                            </div>
+                            <div class="mostplay2">
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Morgana.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1684919904860" alt="">
+                                <h3><span class="most2">4</span>판</h3>
+                            </div>
+                            <div class="mostplay3">
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Nunu.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1684919904860" alt="">
+                                <h3><span class="most3">1</span>판</h3>
+                            </div>  
+                        </div>
+                        <div class="positions20">
+                            <div class="top">
+                                <img src="https://s-lol-web.op.gg/images/icon/icon-position-top.svg?v=1684919904860" alt="">
+                                <h3><span class="topTimes">0</span>판</h3>
+                            </div>
+                            <div class="jungle">
+                                <img src="https://s-lol-web.op.gg/images/icon/icon-position-jungle.svg?v=1684919904860" alt="">
+                                <h3><span class="jungleTimes">0</span>판</h3>
+                            </div>
+                            <div class="mid">
+                                <img src="https://s-lol-web.op.gg/images/icon/icon-position-mid.svg?v=1684919904860" alt="">
+                                <h3><span class="midTimes">0</span>판</h3>
+                            </div>
+                            <div class="bottom">
+                                <img src="https://s-lol-web.op.gg/images/icon/icon-position-adc.svg?v=1684919904860" alt="">
+                                <h3><span class="bottomTimes">0</span>판</h3>
+                            </div>
+                            <div class="support">
+                                <img src="https://s-lol-web.op.gg/images/icon/icon-position-support.svg?v=1684919904860" alt="">
+                                <h3><span class="supportTimes">0</span>판</h3>
+                            </div>
+                            <div class="aram">
+                                <img src="https://www.metasrc.com/assets/v/6.3.20/images/games/lol/aram_icon.png" alt="">
+                                <h3><span class="aramTimes">0</span>판</h3>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <div class="games">
+                <!-- <div class="game">
+                    <div class="game-type-result">
+                        <div class="type">솔랭</div>
+                        <div class="result">승리</div>
+                    </div>
+                    <div class="gameInfoAndItems">
+                        <div class="gameInfo">
+                            <div class="champion">
+                                <div class="iconAndLevel">
+                                    <div class="icon"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Garen.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684919904860" alt=""></div>
+                                    <div class="champion-level">
+                                        18<span>Lv</span>
+                                    </div>
+                                </div>
+                                <div class="rune">
+                                    <div class="rune1"><img src="https://opgg-static.akamaized.net/meta/images/lol/perk/8010.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></div>
+                                    <div class="rune2"><img src="https://opgg-static.akamaized.net/meta/images/lol/perkStyle/8200.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></div>
+                                </div>
+                            </div>
+                            <div class="kda">
+                                <div class="k-d-a">
+                                    <span class="k">11</span>/
+                                    <span class="d">2</span> /
+                                    <span class="a">0</span>
+                                </div>
+                                <div class="ratio">
+                                    <span class="ratioo">5.50</span>:1 평점
+                                </div>
+                                <div class="cs">
+                                    <span class="css">200</span>cs
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <span class="item1"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/3078.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item2"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/3071.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item3"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/3742.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item4"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/3006.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item5"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/6333.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item6"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/3046.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item7"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/3364.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                        </div>
+                    </div>
+                    <div class="participants">
+                        <div class="Ateam">
+                            <span class="user1">user1</span>
+                            <span class="user2">user2</span>
+                            <span class="user3">user3</span>
+                            <span class="user4">user4</span>
+                            <span class="user5">user5</span>
+                        </div>
+                        <div class="Bteam">
+                            <span class="user6">user6</span>
+                            <span class="user7">user7</span>
+                            <span class="user8">user8</span>
+                            <span class="user9">user9</span>
+                            <span class="user10">user10</span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div id="footer">
+            <div class="bones">
+                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fminecraft.novaskin.me%2Fskin%2F1150773030%2Fbone-sans&psig=AOvVaw3jT2h0Qm2NAOxsi63fDc0W&ust=1685255830501000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMDj86rxlP8CFQAAAAAdAAAAABAD" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // summoner api로 유저 데이터를 가져오는 부분
+        const api키 = "RGAPI-a7c0ce0a-8d79-4b84-827a-73cf2b8e5982"
+        let 검색할유저
+        let 소환사puuid
+        let 소환사id
+        const 인풋태그 = document.querySelector("#searchBar")
+        const 검색버튼 = document.querySelector(".sansButton .jb-c")
+
+        const 티어 = document.querySelector(".tierName h3")
+        const 승률 = document.querySelector(".percent .win-lose-percent")
+        const 승 = document.querySelector(".percent .win")
+        const 패 = document.querySelector(".percent .lose")
+
+        let summonerAPI
+        let leagueAPI
+        let matchAPI
+        let gameAPI = []
+
+        let WIN = 0
+        let LOSE = 0
+        let DRAW = 0
+    
+        let topCount = document.querySelector(".top span")
+        let jungleCount = document.querySelector(".jungle span")
+        let midCount = document.querySelector(".mid span")
+        let bottomCount = document.querySelector(".bottom span")
+        let supportCount = document.querySelector(".support span")
+        let aramCount = document.querySelector(".aram span")
+        검색버튼.addEventListener("click", async function() { // 검색버튼 클릭하면 (이벤트 발생)
+            검색할유저 = 인풋태그.value // input 태그에 들어있는 value를 가져오기
+           
+            // summonerAPI 를 호출하는 부분
+            await 소환사API()
+            // LEAGUEAPI를 호출하는 부분
+            await 리그API()
+            // 게임 20개 호출
+            await 게임20개()        
+        })
+        async function 소환사API() {
+            summonerAPI = `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${검색할유저}?api_key=${api키}`
+            let response = await axios.get(summonerAPI)
+
+                console.log("소환사API 호출")
+                console.log(response)
+
+                소환사id = response.data.id
+                소환사puuid = response.data.puuid
+
+                // 소환사 프사 변경
+                // const 프사 = document.querySelector(".headProFile .proFileImg img")
+                // 프사.setAttribute("src", `https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon${response.data.profileIconId}.jpg?image=q_auto,f_webp,w_auto&v=1684436046850`)
+            
+                // 소환사 이름 변경
+                const 이름 = document.querySelector(".userInfo .userName h3")
+                이름.textContent = response.data.name
+ 
+                // 소환사 레벨 변경
+                const 레벨 = document.querySelector(".userInfo .userLevel h3")
+                레벨.textContent = response.data.summonerLevel
+        }
+        
+        async function 리그API() {
+          
+            leagueAPI = `https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${소환사id}?api_key=${api키}`
+            let response = await axios.get(leagueAPI)
+            
+                console.log("리그API 호출")
+                console.log(response)
+                
+                티어.textContent = response.data[0].tier + " " + response.data[0].rank
+                승률.textContent = ((response.data[0].wins / (response.data[0].wins + response.data[0].losses))*100).toFixed(2)
+                승.textContent = response.data[0].wins
+                패.textContent = response.data[0].losses
+
+                // 소환사 랭크이미지 변경
+                const 티어이미지 = document.querySelector(".tier img")
+                티어이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${response.data[0].tier}.png?image=q_auto,f_webp,w_144&v=1684436046850`)
+            }
+        
+        async function 게임20개() {
+
+            
+            // 1. puuid롤 매치 id 얻기 - API 호출
+
+            // Times 초기화
+            let TOP = 0
+            let JUNGLE = 0
+            let MID = 0
+            let BOTTOM = 0
+            let SUPPORT = 0
+            let ARAM = 0
+                
+
+            // 20개 게임 리셋
+            const gaemsReset = document.querySelector(".games")
+            gaemsReset.innerHTML = ""
+            
+            matchAPI = `https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${소환사puuid}/ids?start=0&count=20&api_key=${api키}`
+            let 매치20개 = await axios.get(matchAPI)
+                console.log("매치20개")
+                console.log(매치20개)
+
+            
+            // 2. 매치 ID로  매치 검색  - API 호출
+            gameAPI = []
+            for(let i=0;i<=19;i += 1 ) { // 20번 반복
+                gameAPI.push(`https://asia.api.riotgames.com/lol/match/v5/matches/${매치20개.data[i]}?api_key=${api키}`)
+            }
+
+            // 20개 게임의 데이터를 페이지에 집어넣기
+            for(let k=0; k<=19; k+= 1) {
+                let 게임 = await axios.get(gameAPI[k])
+
+                console.log(`<${k}, 번 째 게임>`)
+                console.log(게임)
+                
+                // 그 게임에서 내가 볓번 participants인지 찾는 코드
+                let 내번호
+                for(let i=0; i <= 9; i+=1) {
+                    if(소환사puuid == 게임.data.metadata.participants[i]) {
+                        내번호 = i
+                        console.log("내번호 = ", 내번호)
+                        break
+                    }
+                }
+    
+                const 게임20개넣을곳 = document.querySelector(".games")
+                
+                let 자식
+                자식 = document.createElement("div")
+                자식.classList.add("game")
+                let textColor = document.querySelector(".game-type-result")
+                
+                // 승 패 처리
+                if (게임.data.info.participants[내번호].win == true) {
+                    // 테두리 색
+                    자식.style.borderBlockColor = "blue"
+                    자식.style.borderInlineColor = "blue"
+                    자식.style.boxShadow = "1px 10px 30px blue";
+                    WIN += 1
+                    if (게임.data.info.gameMode == "CLASSIC") {
+                        자식.innerHTML = 
+                    `
+                    <div class="game-type-result">
+                        <div class="type">클래식</div>
+                        <div class="result">승리</div>
+                    </div>
+                    `
+                    }
+                    else {
+                        자식.innerHTML = 
+                    `
+                    <div class="game-type-result">
+                        <div class="type">칼바람</div>
+                        <div class="result">승리</div>
+                    </div>
+                    `
+                    } 
+                }
+                else if (게임.data.info.participants[내번호].win == false && 게임.data.info.participants[내번호].champLevel >= 3) {
+                    // 테두리 색
+                    자식.style.borderBlockColor = "red"
+                    자식.style.borderInlineColor = "red"
+                    자식.style.boxShadow = "1px 10px 30px red";
+                    LOSE += 1
+                    if (게임.data.info.gameMode == "CLASSIC") {
+                        자식.innerHTML = 
+                    `
+                    <div class="game-type-result">
+                        <div class="type">클래식</div>
+                        <div class="result">패배</div>
+                    </div>
+                    `
+                    }
+                    else {
+                        자식.innerHTML = 
+                    `
+                    <div class="game-type-result">
+                        <div class="type">칼바람</div>
+                        <div class="result">승리</div>
+                    </div>
+                    `
+                    } 
+                }
+                else if (게임.data.info.participants[내번호].win == false && 게임.data.info.participants[내번호].champLevel <= 3) {
+                    // 테두리 색
+                    자식.style.borderBlockColor = "gray"
+                    자식.style.borderInlineColor = "gray"
+                    자식.style.boxShadow = "1px 10px 30px gray";
+                    DRAW += 1
+                    if (게임.data.info.gameMode == "CLASSIC") {
+                        자식.innerHTML = 
+                    `
+                    <div class="game-type-result">
+                        <div class="type">클래식</div>
+                        <div class="result">다시하기</div>
+                    </div>
+                    `
+                    }
+                    else {
+                        자식.innerHTML = 
+                    `
+                    <div class="game-type-result">
+                        <div class="type">칼바람</div>
+                        <div class="result">다시하기</div>
+                    </div>
+                    `
+                    }
+                }
+                // 라인계산
+                if (게임.data.info.participants[내번호].individualPosition == "TOP") {
+                    TOP += 1
+                    topCount.innerHTML = TOP
+                }
+                else if (게임.data.info.participants[내번호].individualPosition == "JUNGLE") {
+                    JUNGLE += 1
+                    jungleCount.innerHTML = JUNGLE
+                }
+                else if (게임.data.info.participants[내번호].individualPosition == "MIDDLE") {
+                    MID += 1
+                    midCount.innerHTML = MID
+                }
+                else if (게임.data.info.participants[내번호].individualPosition == "BOTTOM") {
+                    BOTTOM += 1
+                    bottomCount.innerHTML = BOTTOM
+                }
+                else if (게임.data.info.participants[내번호].individualPosition == "UTILITY") {
+                    SUPPORT += 1
+                    supportCount.innerHTML = SUPPORT
+                }
+                else {
+                    ARAM += 1
+                    aramCount.innerHTML = ARAM
+                }
+                
+                자식.innerHTML +=
+                `
+                    <div class="gameInfoAndItems">
+                        <div class="gameInfo">
+                            <div class="champion">
+                                <div class="iconAndLevel">
+                                    <div class="icon"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[내번호].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684919904860" alt=""></div>
+                                    <div class="champion-level">
+                                        ${게임.data.info.participants[내번호].champLevel}<span><img src="http://127.0.0.1:5500/sans.gg/userLevel.png"></span>
+                                    </div>
+                                </div>
+                                <div class="rune">
+                                    <div class="rune1"><img src="https://opgg-static.akamaized.net/meta/images/lol/perk/${게임.data.info.participants[내번호].perks.styles[0].selections[0].perk}.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></div>
+                                    <div class="rune2"><img src="https://opgg-static.akamaized.net/meta/images/lol/perkStyle/${게임.data.info.participants[내번호].perks.styles[1].style}.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></div>
+                                </div>
+                            </div>
+                            <div class="kda">
+                                <div class="k-d-a">
+                                    <span class="k">${게임.data.info.participants[내번호].kills}</span> /
+                                    <span class="d">${게임.data.info.participants[내번호].deaths}</span> /
+                                    <span class="a">${게임.data.info.participants[내번호].assists}</span>
+                                </div>
+                                <div class="ratio">
+                                    <span class="ratioo">5.50</span>:1 평점
+                                </div>
+                                <div class="cs">
+                                    <span class="css">${게임.data.info.participants[내번호].totalMinionsKilled}</span>cs
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <span class="item1"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item0}.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item2"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item1}.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item3"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item2}.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item4"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item3}.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item5"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item4}.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item6"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item5}.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                            <span class="item7"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item6}.png?image=q_auto,f_webp,w_44&v=1684919904860" alt=""></span>
+                        </div>
+                    </div>
+                    <div class="participants">
+                        <div class="Ateam">
+                            <span class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[0].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_32&v=1684919904860">${게임.data.info.participants[0].summonerName}</span>
+                            <span class="user2"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[1].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_32&v=1684919904860">${게임.data.info.participants[1].summonerName}</span>
+                            <span class="user3"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[2].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_32&v=1684919904860">${게임.data.info.participants[2].summonerName}</span>
+                            <span class="user4"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[3].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_32&v=1684919904860">${게임.data.info.participants[3].summonerName}</span>
+                            <span class="user5"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[4].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_32&v=1684919904860">${게임.data.info.participants[4].summonerName}</span>
+                        </div>
+                        <div class="Bteam">
+                            <span class="user6"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[5].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_32&v=1684919904860">${게임.data.info.participants[5].summonerName}</span>
+                            <span class="user7"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[6].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_32&v=1684919904860">${게임.data.info.participants[6].summonerName}</span>
+                            <span class="user8"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[7].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_32&v=1684919904860">${게임.data.info.participants[7].summonerName}</span>
+                            <span class="user9"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[8].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_32&v=1684919904860">${게임.data.info.participants[8].summonerName}</span>
+                            <span class="user10"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[9].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_32&v=1684919904860">${게임.data.info.participants[9].summonerName}</span>
+                        </div>
+                    </div>
+                `
+        
+                    게임20개넣을곳.appendChild(자식)
+                    
+                
+                /*
+                `
+                    <div> <span class="win-lose">${게임.data.info.participants[내번호].win}</span> <span class="game-type">${게임.data.info.gameMode}</span></div>
+                    <div id="champion"> <span class="champion"><img width="50px" src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[내번호].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684919904860"></span> <span class="champ-level">${게임.data.info.participants[내번호].champLevel}</span> <span class="multi-kill">더블킬 등</span>
+                        <span class="rune">
+                            <span class="rune1"><img src="https://opgg-static.akamaized.net/meta/images/lol/perk/${게임.data.info.participants[내번호].perks.styles[0].selections[0].perk}.png?image=q_auto,f_webp,w_44&v=1684731456578" width="50px"></span>
+                            <span class="rune2"><img width="30px" src="https://opgg-static.akamaized.net/meta/images/lol/perkStyle/${게임.data.info.participants[내번호].perks.styles[1].style}.png?image=q_auto,f_webp,w_44&v=1684731456578"></span>
+                        </span>
+                    </div>
+                    <div> <span class="game-kill">${게임.data.info.participants[내번호].kills}K</span>/<span class="game-death">${게임.data.info.participants[내번호].deaths}D</span>/<span class="game-assist">${게임.data.info.participants[내번호].assists}A</span> <span class="game-kda">per</span></div>
+                    <div> 
+                        <span class="item1"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item0}.png?image=q_auto,f_webp,w_44&v=1684919904860"></span>
+                        <span class="item2"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item1}.png?image=q_auto,f_webp,w_44&v=1684919904860"></span>
+                        <span class="item3"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item2}.png?image=q_auto,f_webp,w_44&v=1684919904860"></span>
+                        <span class="item4"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item3}.png?image=q_auto,f_webp,w_44&v=1684919904860"></span>
+                        <span class="item5"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item4}.png?image=q_auto,f_webp,w_44&v=1684919904860"></span>
+                        <span class="item6"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item5}.png?image=q_auto,f_webp,w_44&v=1684919904860"></span>
+                        <span class="item7"><img src="https://opgg-static.akamaized.net/meta/images/lol/item/${게임.data.info.participants[내번호].item6}.png?image=q_auto,f_webp,w_44&v=1684919904860"></span>
+                    </div>   
+                `
+                */
+            }
+           
+            /*
+            // 구역1
+            console.log("게임 종류", 게임.data.info.gameMode) // 게임 종류  
+            console.log("랭크 타입", 게임.data.info.gameType) // 랭크 타입
+            console.log("승패 T/F", 게임.data.info.participants[내번호].win) // 승패 유무
+
+            // 구역2
+            console.log("챔피언", 게임.data.info.participants[내번호].championName) // 챔피언 이름
+            console.log("레벨", 게임.data.info.participants[내번호].champLevel) // 레벨
+            console.log("더블킬", 게임.data.info.participants[내번호].doubleKills) // 더블킬
+            console.log("트리플킬", 게임.data.info.participants[내번호].tripleKills) // 트리플킬
+            console.log("쿼드라킬", 게임.data.info.participants[내번호].quadraKills) // 쿼드라킬
+            console.log("펜타킬", 게임.data.info.participants[내번호].pentaKills) // 펜타킬
+            // 룬
+            console.log("룬1", 게임.data.info.participants[내번호].perks.styles[0]) // 메인룬
+            console.log("룬1", 게임.data.info.participants[내번호].perks.styles[1]) // 보조룬
+            
+            // 구역3
+            console.log(게임.data.info.participants[내번호].kills , "kills")
+            console.log(게임.data.info.participants[내번호].deaths, "deaths")
+            console.log(게임.data.info.participants[내번호].assists, "assists")
+            // kda는 직접 계산
+            console.log("딜", 게임.data.info.participants[내번호].totalDamageDealtToChampions)
+            console.log("cs", 게임.data.info.participants[내번호].totalMinionsKilled)
+            
+            // 구역4
+            console.log(게임.data.info.participants[내번호].kills , "kills")
+            console.log(게임.data.info.participants[내번호].deaths, "deaths")
+            console.log(게임.data.info.participants[내번호].assists, "assists")
+            console.log(게임.data.info.participants[내번호].totalDamageDealtToChampions, "딜량")
+            console.log(게임.data.info.participants[내번호].championName, "champ")
+
+            */
+            // 구역5
+            // 같이 게임한 유저들
+            
+        }
+        for (let b=0; b <= 100; b+=1) {
+            let bone = document.querySelector(".bones")
+            bone.innerHTML += `<img src="sansbonehalf.png" alt="">`
+            console.log("Gd")
+        }
+    
+    </script>
+
+    
+</body>
+</html>
