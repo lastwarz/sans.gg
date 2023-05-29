@@ -298,7 +298,7 @@
         }
         .info .headProFile2 {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
             width: 1200px;
         }
         .game20Win-lose {
@@ -330,12 +330,32 @@
             width: 48px;
             border-radius: 100pt;
         }
+        
         .headProFile2 .actButton {
             width: 200px;
-            height: 80px;
+            margin: 0px auto;
             position: relative;
-            margin-left: 10px;
+            display: flex;
             top: 90px;
+        }
+        .headProFile2 a {
+            width: 200px;
+            height: 82px;
+            
+        }
+        .lb-c {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0;
+            transition: opacity 0.5s linear;
+        }
+        .lb-b , .lb-c{
+            width: 200px;
+        }
+        .actButton:hover .lb-c {
+            opacity: 1;
+            box-shadow: 3px 3px 10px yellow;
         }
         
 
@@ -383,16 +403,7 @@
                     <div class="mostplay-and-positions20">
                         <div class="mostplay">
                             <div class="mostplay1">
-                                <img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Garen.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1684919904860" alt="">
-                                <h3><span class="most1">15</span>판</h3>
-                            </div>
-                            <div class="mostplay2">
-                                <img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Morgana.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1684919904860" alt="">
-                                <h3><span class="most2">4</span>판</h3>
-                            </div>
-                            <div class="mostplay3">
-                                <img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Nunu.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1684919904860" alt="">
-                                <h3><span class="most3">1</span>판</h3>
+                                <h2>최근 20개 승률과 자주한 챔피언 보러가기 -></h2>
                             </div>  
                         </div>
                         <div class="positions20">
@@ -505,7 +516,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         // summoner api로 유저 데이터를 가져오는 부분
-        const api키 = "RGAPI-8ec22ac0-e849-4889-94f0-b3189b7b4a54"
+        const api키 = "RGAPI-2cfaa949-36d2-4eee-a60e-115b5a0f53f3"
         let 검색할유저
         let 소환사puuid
         let 소환사id
@@ -546,7 +557,7 @@
             
             
         })
-        const 리셋버튼 = document.querySelector(".actButton .kb-c")
+        const 리셋버튼 = document.querySelector(".games20 .actButton .kb-c")
         const 헤드리셋 = document.querySelector(".info")
         
         리셋버튼.addEventListener("click", async function() {
@@ -638,13 +649,16 @@
             두번째.innerHTML +=
                 `
                 <div class="actButton">
-                    <img src="https://art.pixilart.com/sr23d0c239df7af.png" alt="" class="kb-b">
-                    <img src="https://art.pixilart.com/sr20c32fd847db6.png" alt="" class="kb-c">
+                    <a href="sans.gg.html">
+                        <img src="https://art.pixilart.com/sr23d0c239df7af.png" alt="" class="lb-b">
+                        <img src="https://art.pixilart.com/sr20c32fd847db6.png" alt="" class="lb-c">
+                    </a>
                 </div>
                 `
             
 
         }
+        
 
         async function 소환사API() {
             summonerAPI = `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${검색할유저}?api_key=${api키}`
@@ -721,6 +735,15 @@
             // 20개 게임 리셋
             const gaemsReset = document.querySelector(".games")
             gaemsReset.innerHTML = ""
+
+            // 20개 포지션 리셋
+            topCount.innerHTML = `<img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif">`
+            jungleCount.innerHTML = `<img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif">`
+            midCount.innerHTML = `<img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif">`
+            bottomCount.innerHTML = `<img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif">`
+            supportCount.innerHTML = `<img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif">`
+            aramCount.innerHTML = `<img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif">`
+
             
             matchAPI = `https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${소환사puuid}/ids?start=0&count=20&api_key=${api키}`
             let 매치20개 = await axios.get(matchAPI)
@@ -760,71 +783,102 @@
 
                 let textColor = document.querySelector(".game-type-result")
                 
-                // 승 패 처리
+                // 승 패 처리 && 게임 타입 구분(일반,칼바람,솔랭,자랭)
                 if (게임.data.info.participants[내번호].win == true) {
                     // 테두리 색
                     자식.style.borderBlockColor = "blue"
                     자식.style.borderInlineColor = "blue"
                     자식.style.boxShadow = "1px 10px 30px blue";
-                    if (게임.data.info.gameMode == "CLASSIC") {
+                    if (게임.data.info.gameMode == "CLASSIC" && 게임.data.info.teams[0].bans == "") {
                         자식.innerHTML = 
                     `
                     <div class="game-type-result">
-                        <div class="type">클래식</div>
+                        <div class="type">일반</div>
                         <div class="result">승리</div>
                     </div>
                     `
                     }
-                    else {
+                    else if (게임.data.info.gameMode == "CLASSIC") {
                         자식.innerHTML = 
+                    `
+                    <div class="game-type-result">
+                        <div class="type">랭크</div>
+                        <div class="result">승리</div>
+                    </div>
+                    `
+                    }
+                    else if (게임.data.info.gameMode == "ARAM") {
+                        자식.innerHTML =
                     `
                     <div class="game-type-result">
                         <div class="type">칼바람</div>
                         <div class="result">승리</div>
                     </div>
                     `
-                    } 
+                    }
                 }
+                // 패배조건
                 else if (게임.data.info.participants[내번호].win == false && 게임.data.info.participants[내번호].champLevel >= 3) {
+                    
                     // 테두리 색
                     자식.style.borderBlockColor = "red"
                     자식.style.borderInlineColor = "red"
                     자식.style.boxShadow = "1px 10px 30px red";
-                    textColor.style.color = "red"
-                    if (게임.data.info.gameMode == "CLASSIC") {
+                    //textColor.style.color = "red"
+                    // 게임타입 조건
+                    if (게임.data.info.gameMode == "CLASSIC" && 게임.data.info.teams[0].bans == "") {
                         자식.innerHTML = 
                     `
                     <div class="game-type-result">
-                        <div class="type">클래식</div>
+                        <div class="type">일반</div>
                         <div class="result">패배</div>
                     </div>
                     `
                     }
-                    else {
+                    else if (게임.data.info.gameMode =="CLASSIC") {
+                        자식.innerHTML = 
+                    `
+                    <div class="game-type-result">
+                        <div class="type">랭크</div>
+                        <div class="result">패배</div>
+                    </div>
+                    `
+                    }
+                    else if (게임.data.info.gameMode =="ARAM") {
                         자식.innerHTML = 
                     `
                     <div class="game-type-result">
                         <div class="type">칼바람</div>
-                        <div class="result">승리</div>
+                        <div class="result">패배</div>
                     </div>
                     `
-                    } 
+                    }
                 }
+                // 무승부 조건
                 else if (게임.data.info.participants[내번호].win == false && 게임.data.info.participants[내번호].champLevel <= 3) {
                     // 테두리 색
                     자식.style.borderBlockColor = "gray"
                     자식.style.borderInlineColor = "gray"
                     자식.style.boxShadow = "1px 10px 30px gray";
-                    if (게임.data.info.gameMode == "CLASSIC") {
+                    if (게임.data.info.gameMode == "CLASSIC" && 게임.data.info.teams[0].bans == "") {
                         자식.innerHTML = 
                     `
                     <div class="game-type-result">
-                        <div class="type">클래식</div>
+                        <div class="type">일반</div>
                         <div class="result">다시하기</div>
                     </div>
                     `
                     }
-                    else {
+                    else if (게임.data.info.gameMode =="CLASSIC") {
+                        자식.innerHTML = 
+                    `
+                    <div class="game-type-result">
+                        <div class="type">랭크</div>
+                        <div class="result">다시하기</div>
+                    </div>
+                    `
+                    }
+                    else if (게임.data.info.gameMode =="ARAM") {
                         자식.innerHTML = 
                     `
                     <div class="game-type-result">
